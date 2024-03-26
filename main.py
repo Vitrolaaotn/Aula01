@@ -3,7 +3,7 @@ import mysql.connector as sql
 import csv
 import os
 
-connection = sql.connect(host="127.0.0.1", user="root", password="", database="logins")
+connection = sql.connect(host="127.0.0.1", user="root", password="", database="users")
 
 cursor = connection.cursor()
 
@@ -34,6 +34,7 @@ def index():
     with open("products.csv", "r") as f:
         products = [row for row in csv.reader(f)]
     return render_template("index.html", products=products)
+
 
 
 @app.route("/login", methods=["GET", "POST"])
